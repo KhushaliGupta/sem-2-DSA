@@ -1,0 +1,44 @@
+# include <stdio.h>
+void main()
+{
+    int n,s;
+    printf("Enter the array size:");
+    scanf("%d",&n);
+    int arr[n],i;
+    for(i=0;i<=n-1;i++){
+        scanf("%d",&arr[i]);
+    }
+    int m;
+    printf("Enter the size of array:");
+    scanf("%d",&m);
+    int a[m];
+    for(i=0;i<=m-1;i++){
+        scanf("%d",&a[i]);
+    }
+    int brr[n];
+    if(m==n){
+        s=m+n;
+        for(i=0;i<=n-1;i++){
+            brr[i]=arr[i];
+        }
+        for(i=0;i<=m-1;i++){
+            brr[n+i]=a[i];
+        }
+        for(i=0;i<=s-1;i++){
+            printf(" %d ",brr[i]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<=s-1;i++){
+        for(int j=0;j<s-i-1;j++){
+            if(brr[j]<brr[j+1]){
+                int temp=brr[j];
+                brr[j]=brr[j+1];
+                brr[j+1]=temp;
+            }
+        }
+    }
+    for(i=0;i<=s-1;i++)
+    printf(" %d ",brr[i]);
+    
+}
